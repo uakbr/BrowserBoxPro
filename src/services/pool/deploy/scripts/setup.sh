@@ -26,5 +26,8 @@ then
   echo "%renice ALL=NOPASSWD: /usr/bin/renice, /usr/bin/loginctl, /usr/bin/id" | $SUDO tee -a /etc/$SUDOers >&2
 fi
 
+$SUDO apt-get install tuned
+tuned-adm profile latency-performance
+
 $SUDO ./scripts/commands/newuser.sh quotauser
 
